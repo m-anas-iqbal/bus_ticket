@@ -1,0 +1,103 @@
+﻿@model TNT_express.Models.contact
+
+@{
+    ViewBag.Title = "Contact";
+}
+
+<!-- Page Header Start -->
+<div class="page-header">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <h2>Contact Us</h2>
+            </div>
+            <div class="col-12">
+                <a href="@Url.Action("Index", "Home")">Home</a>
+                <a href="@Url.Action("Contact", "Home")">Contact Us</a>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Page Header End -->
+<!-- Contact Start -->
+<div class="contact wow fadeInUp">
+    <div class="container">
+        <div class="section-header text-center">
+            <p>Get In Touch</p>
+            <h2>For Any Query</h2>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <i class="flaticon-address"></i>
+                        <div class="contact-text">
+                            <h2>Location</h2>
+                            <p>2 Street, Baldia Town, Karachi</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="flaticon-call"></i>
+                        <div class="contact-text">
+                            <h2>Phone</h2>
+                            <p>03142343223</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="flaticon-send-mail"></i>
+                        <div class="contact-text">
+                            <h2>Email</h2>
+                            <p>tendtexpress@gmail.com</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="contact-form">
+                    <h4>Contact us</h4>
+
+                    @using (Html.BeginForm())
+                    {
+
+                        <div class="form-horizontal"style="padding: 15px;">
+                            
+                            <div class="form-group">
+                                <div class="col-md-10">
+                                    @Html.EditorFor(model => model.c_name, new { htmlAttributes = new { placeholder = "Your Name", @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.c_name, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <div class="col-md-10">
+                                    @Html.EditorFor(model => model.c_email, new { htmlAttributes = new { placeholder = "Your Email", @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.c_email, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <div class="col-md-10">
+                                    @Html.EditorFor(model => model.c_subject, new { htmlAttributes = new { placeholder = "Subject", @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.c_subject, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <div class="col-md-10">
+                                    @Html.EditorFor(model => model.c_message, new { htmlAttributes = new { placeholder = "Message", @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.c_message, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <div class="col-md-offset-2 col-md-10">
+                                    <input type="submit" value="Send Message" class="btn btn-default" />
+                                </div>
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

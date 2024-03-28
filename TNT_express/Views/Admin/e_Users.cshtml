@@ -1,0 +1,71 @@
+﻿@model TNT_express.Models.user
+
+@{
+    ViewBag.Title = "e_Users";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+<div class="content-body">
+
+    <h2>Edit Users</h2>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-horizontal">
+            <h4>Edit User</h4>
+            <hr />
+            @Html.HiddenFor(model => model.user_id)
+
+            <div class="form-group">
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.u_name, new { htmlAttributes = new { placeholder = "User name", @class = "form-control" } })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.u_email, new { htmlAttributes = new { placeholder = "Email ", @class = "form-control" } })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.u_phone, new { htmlAttributes = new { placeholder = "Phone", @class = "form-control" } })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.u_adresss, new { htmlAttributes = new { placeholder = "address", @class = "form-control" } })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.u_age, new { htmlAttributes = new { placeholder = "Age", @class = "form-control" } })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.u_role, new { htmlAttributes = new { placeholder = "User Role", @class = "form-control" } })
+                </div>
+            </div>
+
+            <div class="form-group">
+               
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.u_password, new { htmlAttributes = new { placeholder = "Password", @class = "form-control" } })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Save" class="btn btn-default" />
+                </div>
+            </div>
+        </div>
+    }
+
+</div>

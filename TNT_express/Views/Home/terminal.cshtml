@@ -1,0 +1,41 @@
+﻿@model IEnumerable<TNT_express.Models.terminl>
+@{
+    ViewBag.Title = "terminal";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="page-header">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <h2>About Us</h2>
+            </div>
+            <div class="col-12">
+                <a href="@Url.Action("Index", "Home")">Home</a>
+                <a href="@Url.Action("terminal", "Home")">Terminal</a>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="row">
+        @foreach (var item in Model.Reverse())
+        {
+            <div class="col-lg-4 col-md-6 wow fadeInUp mb-2" data-wow-delay="0.3s" style="visibility: visible; animation-delay: 0.3s; animation-name: fadeInUp;">
+                <div class="service-item">
+                    <div class="service-img">
+                        <img src="~/Assets/terminals/@item.pic_terminal"  style="width: 300px; height: 185px;" alt="Image">
+                        <div class="service-overlay">
+                            <p>
+                                @item.description
+                            </p>
+                        </div>
+                    </div>
+                    <div class="service-text">
+                        <h3>@item.place_name</h3>
+                        <a class="btn" href="~/Assets/terminals/@item.pic_terminal" data-lightbox="service">@item.city</a>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>

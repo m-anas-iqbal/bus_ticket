@@ -1,0 +1,44 @@
+﻿
+@{
+    ViewBag.Title = "Login";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="form-sign">
+
+    @using (Html.BeginForm())
+    {
+
+        <div class="form-horizontal">
+            <h1>Login</h1>
+            <hr />
+            <p style="color:red;">@ViewBag.msg</p>
+            <div class="form-group">
+                <div class="col">
+                    @Html.TextBox("username", null, new { placeholder = "Enter your User name", @class = "t2 form-control" })
+
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col">
+                    @Html.TextBox("password", null, new { Type = "password", placeholder = "Enter your Password", @class = "t2 form-control" })
+
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col">
+                    <input type="submit" value="Login" class="btn" />
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col">
+                    <a href="@Url.Action("Forgetpassword", "Home") " class="a">Forget Password?</a><br />
+                    <a href=" @Url.Action("Signup", "Home") " class="a">If you haven't account then click here for Sign up</a>
+                </div>
+            </div>
+        </div>
+    }
+
+</div>
+

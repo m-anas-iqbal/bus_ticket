@@ -1,0 +1,100 @@
+﻿@model IEnumerable<TNT_express.Models.user>
+
+@{
+    ViewBag.Title = "Users";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+<div class="content-body">
+
+    <div class="col-12">
+        <div class="card">
+            <div class="card-header">
+                <h4 class="card-title">Users</h4>  @Html.ActionLink("Add User", "c_Users","Admin",new { @class = "btn btn-dark" })
+            </div>
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table id="example3" class="display" style="min-width: 845px">
+                        <thead>
+                            <tr>
+                                <th>
+
+                                </th>
+                                <th>
+                                    Image
+                                </th>
+                                <th>
+                                    User name
+                                </th>
+                                <th>
+                                    Email
+                                </th>
+                                <th>
+                                    Phone
+                                </th>
+                                <th>
+                                    Address
+                                </th>
+                                <th>
+                                    Age
+                                </th>
+                                <th>
+                                    Role
+                                </th>
+                                <th>
+                                    Password
+                                </th>
+                                <th>
+
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+
+                            @foreach (var item in Model)
+                            {
+                            <tr>
+                                <td>
+                                   
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.u_img)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.u_name)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.u_email)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.u_phone)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.u_adresss)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.u_age)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.u_role)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.u_password)
+                                </td>
+                                <td>
+                                    <div class="d-flex">
+                                        <a href="@Url.Action("e_Users","Admin", new { id = item.user_id })" class="btn btn-primary shadow btn-xs sharp mr-1"><i class="fa fa-pencil"></i></a>
+                                        @using (Html.BeginForm("u_Delete", "Admin", FormMethod.Post,new { id=item.user_id} ))
+                                        {
+                                            <button class="btn btn-danger shadow btn-xs sharp"><i class="fa fa-trash"></i></button>
+                                        }
+                                    </div>
+                                </td>
+                            </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,349 @@
+﻿@model TNT_express.Models.shedule
+@{
+    ViewBag.Title = "Home Page";
+}
+<!-- Video Start -->
+<div class="video wow fadeIn" data-wow-delay="0.1s">
+    <div class="container">
+        <button type="button" class="btn-play" data-toggle="modal" data-src="https://www.youtube.com/embed/DWRcNpR6Kdc" data-target="#videoModal">
+            <span></span>
+        </button>
+    </div>
+</div>
+
+<div class="modal fade" id="videoModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-body">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <!-- 16:9 aspect ratio -->
+                <div class="embed-responsive embed-responsive-16by9">
+                    <iframe class="embed-responsive-item" src="" id="video" allowscriptaccess="always" allow="autoplay"></iframe>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Video End -->
+<!--  -->
+<div class="ticket_b" id="ticket">
+    <div class="contact-form">
+        <div class="row">
+            <div class="col">
+                <h2>Ticket booking</h2>
+                <br>
+            </div>
+        </div>
+        @using (Html.BeginForm(new { id = "contactForm" }))
+        {
+            <div class="row">
+                <div class="control-group col">
+                    <input type="text" name="departure" class="t1" id="departure" placeholder="Departure" required="required" data-validation-required-message="Please enter your departure" />
+                    <p class="help-block text-danger"></p>
+                </div>
+                <div class="control-group col">
+                    <input type="text" name="destination" class="t1" id="destination" placeholder="Destination" required="required" data-validation-required-message="Please enter your destination" />
+                    <p class="help-block text-danger"></p>
+                </div>
+                <div class="control-group col">
+                    <input id="datefield" name="datefield" class="t1" type='date' min='1899-01-01' max='2000-13-13' required="required" data-validation-required-message="Please enter a date"></input>
+                    <p class="help-block text-danger"></p>
+                </div>
+
+                <div class="col">
+                    <button class="btn" type="submit" id="sendMessageButton">Search</button>
+                </div>
+            </div>
+
+        }
+    </div>
+
+</div>
+
+<!-- About Start -->
+<div class="about wow fadeInUp" data-wow-delay="0.1s">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-5 col-md-6">
+                <div class="about-img">
+                    <img src="https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=869&q=80" alt="Image">
+                </div>
+            </div>
+            <div class="col-lg-7 col-md-6">
+                <div class="section-header text-left">
+                    <p>Welcome to TNT Express</p>
+                    <h2>5 Years Experience</h2>
+                </div>
+                <div class="about-text">
+                    <p>
+                        For the first time in Pakistan, enjoy Hybrid Ticketing System that gives you the advantage of early booking, changes with peak hours or off-peak hours and benefits of flexible fares that come with the position &amp; placement of your seat in the bus. This is a low cost flexible model tailor made to suit your travel needs.
+                    </p>
+                    <p>
+                        It is a promise that TNT Express makes to it’s customers, that by owing the brand, you don’t need to look out for any other travelling partner. We are committed to provide you a world class travel experience with unparalleled services, ensuring that you have pleasant &amp; memorable journey every time.
+                    </p>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- About End -->
+<!-- Service Start -->
+<div class="service">
+    <div class="container">
+        <div class="section-header text-center">
+            <p>Our Services</p>
+            <h2>We Provide Services</h2>
+        </div>
+
+        <div class="row">
+            <div class="col-md-6">
+                <div id="accordion-1">
+                    <div class="card wow fadeInLeft" data-wow-delay="0.1s">
+                        <div class="card-header">
+                            <a class="card-link collapsed" data-toggle="collapse" href="#collapseOne">
+                                24/7 Customer Support
+                            </a>
+                        </div>
+                        <div id="collapseOne" class="collapse" data-parent="#accordion-1">
+                            <div class="card-body">
+                                Their relevant skills enable them to guide &amp; facilitate customers effectively which eventually make them a best fit to respond to our customer’s needs.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card wow fadeInLeft" data-wow-delay="0.2s">
+                        <div class="card-header">
+                            <a class="card-link collapsed" data-toggle="collapse" href="#collapseTwo">
+                                Masterpieces Hair Salon
+                            </a>
+                        </div>
+                        <div id="collapseTwo" class="collapse" data-parent="#accordion-1">
+                            <div class="card-body">
+                                This is just the place to relax, get some personal grooming done and make your travel stress disappear.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card wow fadeInLeft" data-wow-delay="0.3s">
+                        <div class="card-header">
+                            <a class="card-link collapsed" data-toggle="collapse" href="#collapseThree">
+                                Master Fashion Stop
+                            </a>
+                        </div>
+                        <div id="collapseThree" class="collapse" data-parent="#accordion-1">
+                            <div class="card-body">
+                                Travel with style;  Now get hold of trendy fashion apparel and accessories at our terminal.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card wow fadeInLeft" data-wow-delay="0.4s">
+                        <div class="card-header">
+                            <a class="card-link collapsed" data-toggle="collapse" href="#collapseFour">
+                                Little Masters Kids Club
+                            </a>
+                        </div>
+                        <div id="collapseFour" class="collapse" data-parent="#accordion-1">
+                            <div class="card-body">
+                                Make your kids travel with a bunch of fun filled activities at the terminal every time you a plan a journey with us.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card wow fadeInLeft" data-wow-delay="0.5s">
+                        <div class="card-header">
+                            <a class="card-link collapsed" data-toggle="collapse" href="#collapseFive">
+                                Master Collections
+                            </a>
+                        </div>
+                        <div id="collapseFive" class="collapse" data-parent="#accordion-1">
+                            <div class="card-body">
+                                TNT Express redefines Terminal experience; now choose from vast range of gifts, souvenirs, beauty and electronics for your loved ones and make your journey memorable.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div id="accordion-2">
+                    <div class="card wow fadeInRight" data-wow-delay="0.1s">
+                        <div class="card-header">
+                            <a class="card-link collapsed" data-toggle="collapse" href="#collapseSix">
+                                Delectable Snacks Onboard
+                            </a>
+                        </div>
+                        <div id="collapseSix" class="collapse" data-parent="#accordion-2">
+                            <div class="card-body">
+                                Food is considered to be the core essence of every journey, we at TNT Express allow its customers to treat their taste buds with delightful snacks, especially prepared by our cuisine partner; Kitchen Cuisine.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card wow fadeInRight" data-wow-delay="0.2s">
+                        <div class="card-header">
+                            <a class="card-link collapsed" data-toggle="collapse" href="#collapseSeven">
+                                Eagle Eye Surveillance
+                            </a>
+                        </div>
+                        <div id="collapseSeven" class="collapse" data-parent="#accordion-2">
+                            <div class="card-body">
+                                Your security is our topmost priority. With the assistance of TNT Express Eagle Eye Surveillance, travelling with us ensures that you and your family enjoy the journey in absence of any fear. For passenger’s luggage,
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card wow fadeInRight" data-wow-delay="0.3s">
+                        <div class="card-header">
+                            <a class="card-link collapsed" data-toggle="collapse" href="#collapseEight">
+                                ACE Entertainment System
+                            </a>
+                        </div>
+                        <div id="collapseEight" class="collapse" data-parent="#accordion-2">
+                            <div class="card-body">
+                                Watch your favorite movies &amp; TV shows, listen to trending music, play exciting games and stay updated with latest news through e-newspaper. Our high-definition entertainment system “ACE” will keep you hooked the entire journey.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card wow fadeInRight" data-wow-delay="0.4s">
+                        <div class="card-header">
+                            <a class="card-link collapsed" data-toggle="collapse" href="#collapseNine">
+                                On Time Every Time
+                            </a>
+                        </div>
+                        <div id="collapseNine" class="collapse" data-parent="#accordion-2">
+                            <div class="card-body">
+                                “On Time Every Time” is our derive force which allow us to take our customers to their destinations on time.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card wow fadeInRight" data-wow-delay="0.5s">
+                        <div class="card-header">
+                            <a class="card-link collapsed" data-toggle="collapse" href="#collapseTen">
+                                Air Purification System
+                            </a>
+                        </div>
+                        <div id="collapseTen" class="collapse" data-parent="#accordion-2">
+                            <div class="card-body">
+                                TNT Express takes pride in introducing the first ever Air Purification System in our buses which keeps the cabin air clean, healthy and refreshing so that our valued passengers can relax with every breath.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+<!-- Service End -->
+
+<!-- Testimonial Start -->
+<div class="testimonial wow fadeIn" data-wow-delay="0.1s">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="testimonial-slider-nav">
+                    <div class="slider-nav"><img src="~/Assets/Home/img/testimonial-1.jpg" alt="Testimonial"></div>
+                    <div class="slider-nav"><img src="~/Assets/Home/img/testimonial-2.jpg" alt="Testimonial"></div>
+                    <div class="slider-nav"><img src="~/Assets/Home/img/testimonial-3.jpg" alt="Testimonial"></div>
+                    <div class="slider-nav"><img src="~/Assets/Home/img/testimonial-4.jpg" alt="Testimonial"></div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <div class="testimonial-slider">
+                    <div class="slider-item">
+                        <h3>Rafay malik</h3>
+                        <h4>Software Engineer</h4>
+                        <p>What a wonderful experience! The two tour leaders who were archaeologists enthralled us with the history of the Islands. The food was bountiful. On the boat the meals were wholesome and delicious..</p>
+                    </div>
+                    <div class="slider-item">
+                        <h3>Elizabeth Warne</h3>
+                        <h4>Doctor</h4>
+                        <p>our guides and our gulet crew truly cared about us, both the kids and adults, and did their best to make this trip memorable.</p>
+                    </div>
+                    <div class="slider-item">
+                        <h3>Wilson carley</h3>
+                        <h4>Traveller</h4>
+                        <p>The holiday of a life time - our gulet adventure in the Dodecanese Greek Islands was without a doubt our favourite family trip. The comfort and beauty of the gulet, the incredibly caring crew, the delicious food</p>
+                    </div>
+                    <div class="slider-item">
+                        <h3>Monika mohan das</h3>
+                        <h4>Media anchor</h4>
+                        <p>We had a GREAT and MEANINGFUL time on our journey and it was a highlight to meet you. You are very concerned and you take all things seriously.tur non nisl nec nisi scelerisque maximus.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Testimonial End -->
+<!-- Blog Start -->
+<div class="blog">
+    <div class="container">
+        <div class="section-header text-center">
+            <p>Latest Blog</p>
+            <h2>Latest From Our Blog</h2>
+        </div>
+        <div class="row">
+            <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.2s">
+                <div class="blog-item">
+                    <div class="blog-img">
+                        <img src="img/blog-1.jpg" alt="Image">
+                    </div>
+                    <div class="blog-title">
+                        <h3>Lorem ipsum dolor sit</h3>
+                        <a class="btn" href="">+</a>
+                    </div>
+                    <div class="blog-meta">
+                        <p>By<a href="">Admin</a></p>
+                        <p>In<a href="">Construction</a></p>
+                    </div>
+                    <div class="blog-text">
+                        <p>
+                            Lorem ipsum dolor sit amet elit. Phasellus nec pretium mi. Curabitur facilisis ornare velit non vulputate. Aliquam metus tortor
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 wow fadeInUp">
+                <div class="blog-item">
+                    <div class="blog-img">
+                        <img src="img/blog-2.jpg" alt="Image">
+                    </div>
+                    <div class="blog-title">
+                        <h3>Lorem ipsum dolor sit</h3>
+                        <a class="btn" href="">+</a>
+                    </div>
+                    <div class="blog-meta">
+                        <p>By<a href="">Admin</a></p>
+                        <p>In<a href="">Construction</a></p>
+                    </div>
+                    <div class="blog-text">
+                        <p>
+                            Lorem ipsum dolor sit amet elit. Phasellus nec pretium mi. Curabitur facilisis ornare velit non vulputate. Aliquam metus tortor
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.2s">
+                <div class="blog-item">
+                    <div class="blog-img">
+                        <img src="img/blog-3.jpg" alt="Image">
+                    </div>
+                    <div class="blog-title">
+                        <h3>Lorem ipsum dolor sit</h3>
+                        <a class="btn" href="">+</a>
+                    </div>
+                    <div class="blog-meta">
+                        <p>By<a href="">Admin</a></p>
+                        <p>In<a href="">Construction</a></p>
+                    </div>
+                    <div class="blog-text">
+                        <p>
+                            Lorem ipsum dolor sit amet elit. Phasellus nec pretium mi. Curabitur facilisis ornare velit non vulputate. Aliquam metus tortor
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Blog End -->

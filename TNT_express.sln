@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.1.32210.238
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TNT_express", "TNT_express\TNT_express.csproj", "{DFEC62C2-F4EE-46FD-8E45-5ED95BF85F39}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{DFEC62C2-F4EE-46FD-8E45-5ED95BF85F39}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DFEC62C2-F4EE-46FD-8E45-5ED95BF85F39}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DFEC62C2-F4EE-46FD-8E45-5ED95BF85F39}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DFEC62C2-F4EE-46FD-8E45-5ED95BF85F39}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {D65BBC01-F0B9-4EB4-BB0E-10560DE69A70}
+	EndGlobalSection
+EndGlobal

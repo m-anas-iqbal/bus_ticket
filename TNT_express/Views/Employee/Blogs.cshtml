@@ -1,0 +1,60 @@
+﻿@model IEnumerable<TNT_express.Models.blog>
+
+@{
+    ViewBag.Title = "Blogs";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>Blogs</h2>
+<div class="content-body">
+
+    <div class="col-12">
+        <div class="card">
+            <div class="card-header">
+                <h4 class="card-title">Blogs</h4>  
+            </div>
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table id="example3" class="display" style="min-width: 845px">
+                        <thead>
+                            <tr>
+                                <th></th>
+                                <th>Image</th>
+                                <th>Place</th>
+                                <th>City</th>
+                                <th>Description</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td>
+
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.pic_blog)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.place_name)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.city)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.description)
+                                    </td>
+                                    <td>
+                                       
+                                    </td>
+                                </tr>
+                            }
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>

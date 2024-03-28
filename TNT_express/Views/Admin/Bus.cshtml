@@ -1,0 +1,80 @@
+﻿@model IEnumerable<TNT_express.Models.bus>
+
+@{
+    ViewBag.Title = "Bus";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+<div class="content-body">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-header">
+                <h4 class="card-title">Bus</h4>  @Html.ActionLink("Add Bus", "c_Bus", "Admin", new { @class = "btn btn-dark" })
+            </div>
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table id="example3" class="display" style="min-width: 845px">
+                        <thead>
+
+                            <tr>
+                                <th></th>
+                                <th>
+                                  Bus name
+                                </th>
+                                <th>
+                                    Bus type
+                                </th>
+                                <th>
+                                    Total seats
+                                </th>
+                                <th>
+                                    Available seats
+                                </th>
+                                <th>
+                                    Bus no
+                                </th>
+                                <th></th>
+                            </tr>
+
+                        </thead>
+                        <tbody>
+
+                            @foreach (var item in Model)
+                            {
+                            <tr>
+                                <td>
+                                   
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.bus_company)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.bus_type)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.total_seats)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.able_seats)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.bus_no)
+                                </td>
+                                <td>
+                                    <div class="d-flex">
+                                        <a href="@Url.Action("e_Bus","Admin", new { id = item.bus_id })" class="btn btn-primary shadow btn-xs sharp mr-1"><i class="fa fa-pencil"></i></a>
+                                        @using (Html.BeginForm("Delete", "Admin", FormMethod.Post, new { id = item.bus_id }))
+                                        {
+                                            <button class="btn btn-danger shadow btn-xs sharp"><i class="fa fa-trash"></i></button>
+                                        }
+                                    </div>
+                                </td>
+                            </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>

@@ -1,0 +1,318 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="tnt_dataModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="bookingdetail">
+    <Key>
+      <PropertyRef Name="book_id" />
+    </Key>
+    <Property Name="book_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="user_id" Type="Int32" />
+    <Property Name="acc_no" Type="Int64" />
+    <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="booked_date" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="user" Relationship="Self.FK__bookingde__user___3A81B327" FromRole="bookingdetails" ToRole="users" />
+    <NavigationProperty Name="cancelations" Relationship="Self.FK__cancelati__book___4E88ABD4" FromRole="bookingdetails" ToRole="cancelations" />
+    <NavigationProperty Name="payments" Relationship="Self.FK__payment__book_id__49C3F6B7" FromRole="bookingdetails" ToRole="payments" />
+  </EntityType>
+  <EntityType Name="bus">
+    <Key>
+      <PropertyRef Name="bus_id" />
+    </Key>
+    <Property Name="bus_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="bus_company" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="bus_type" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="total_seats" Type="Int32" Nullable="false" />
+    <Property Name="able_seats" Type="Int32" Nullable="false" />
+    <Property Name="bus_no" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="seats" Relationship="Self.FK__seats__bus_id__3F466844" FromRole="buses" ToRole="seats" />
+    <NavigationProperty Name="shedules" Relationship="Self.FK__shedule__bus_id__4316F928" FromRole="buses" ToRole="shedules" />
+  </EntityType>
+  <EntityType Name="cancelation">
+    <Key>
+      <PropertyRef Name="cancel_id" />
+    </Key>
+    <Property Name="cancel_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ticket_id" Type="Int64" />
+    <Property Name="book_id" Type="Int32" />
+    <NavigationProperty Name="bookingdetail" Relationship="Self.FK__cancelati__book___4E88ABD4" FromRole="cancelations" ToRole="bookingdetails" />
+    <NavigationProperty Name="ticket" Relationship="Self.FK__cancelati__ticke__4D94879B" FromRole="cancelations" ToRole="tickets" />
+  </EntityType>
+  <EntityType Name="contact">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="c_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="c_email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="c_subject" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="c_message" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="payment">
+    <Key>
+      <PropertyRef Name="pay_id" />
+    </Key>
+    <Property Name="pay_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="book_id" Type="Int32" />
+    <Property Name="ticket_id" Type="Int64" />
+    <NavigationProperty Name="bookingdetail" Relationship="Self.FK__payment__book_id__49C3F6B7" FromRole="payments" ToRole="bookingdetails" />
+    <NavigationProperty Name="ticket" Relationship="Self.FK__payment__ticket___4AB81AF0" FromRole="payments" ToRole="tickets" />
+  </EntityType>
+  <EntityType Name="seat">
+    <Key>
+      <PropertyRef Name="seats_Id" />
+    </Key>
+    <Property Name="seats_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="gender" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="age" Type="Int32" />
+    <Property Name="bus_id" Type="Int32" Nullable="false" />
+    <Property Name="user_id" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="bus" Relationship="Self.FK__seats__bus_id__3F466844" FromRole="seats" ToRole="buses" />
+    <NavigationProperty Name="user" Relationship="Self.FK__seats__user_id__403A8C7D" FromRole="seats" ToRole="users" />
+    <Property Name="seat_no" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="shedule">
+    <Key>
+      <PropertyRef Name="shedule_id" />
+    </Key>
+    <Property Name="shedule_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="bus_id" Type="Int32" Nullable="false" />
+    <Property Name="travel_date" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="departure" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="destination" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="bus" Relationship="Self.FK__shedule__bus_id__4316F928" FromRole="shedules" ToRole="buses" />
+    <NavigationProperty Name="tickets" Relationship="Self.FK__ticket__schedule__45F365D3" FromRole="shedules" ToRole="tickets" />
+    <Property Name="duration" Type="Int32" Nullable="false" />
+    <Property Name="Fare" Type="Double" />
+  </EntityType>
+  <EntityType Name="ticket">
+    <Key>
+      <PropertyRef Name="ticket_Id" />
+    </Key>
+    <Property Name="ticket_Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="schedule_id" Type="Int32" Nullable="false" />
+    <Property Name="user_id" Type="Int32" Nullable="false" />
+    <Property Name="no_seat" Type="Int32" Nullable="false" />
+    <Property Name="fare" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="cancelations" Relationship="Self.FK__cancelati__ticke__4D94879B" FromRole="tickets" ToRole="cancelations" />
+    <NavigationProperty Name="payments" Relationship="Self.FK__payment__ticket___4AB81AF0" FromRole="tickets" ToRole="payments" />
+    <NavigationProperty Name="shedule" Relationship="Self.FK__ticket__schedule__45F365D3" FromRole="tickets" ToRole="shedules" />
+    <NavigationProperty Name="user" Relationship="Self.FK__ticket__user_id__46E78A0C" FromRole="tickets" ToRole="users" />
+  </EntityType>
+  <EntityType Name="user">
+    <Key>
+      <PropertyRef Name="user_id" />
+    </Key>
+    <Property Name="user_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="u_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="u_email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="u_phone" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="u_adresss" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="u_age" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="u_role" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="u_password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="u_img" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="bookingdetails" Relationship="Self.FK__bookingde__user___3A81B327" FromRole="users" ToRole="bookingdetails" />
+    <NavigationProperty Name="seats" Relationship="Self.FK__seats__user_id__403A8C7D" FromRole="users" ToRole="seats" />
+    <NavigationProperty Name="tickets" Relationship="Self.FK__ticket__user_id__46E78A0C" FromRole="users" ToRole="tickets" />
+  </EntityType>
+  <Association Name="FK__bookingde__user___3A81B327">
+    <End Role="users" Type="Self.user" Multiplicity="0..1" />
+    <End Role="bookingdetails" Type="Self.bookingdetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="users">
+        <PropertyRef Name="user_id" />
+      </Principal>
+      <Dependent Role="bookingdetails">
+        <PropertyRef Name="user_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__cancelati__book___4E88ABD4">
+    <End Role="bookingdetails" Type="Self.bookingdetail" Multiplicity="0..1" />
+    <End Role="cancelations" Type="Self.cancelation" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="bookingdetails">
+        <PropertyRef Name="book_id" />
+      </Principal>
+      <Dependent Role="cancelations">
+        <PropertyRef Name="book_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__payment__book_id__49C3F6B7">
+    <End Role="bookingdetails" Type="Self.bookingdetail" Multiplicity="0..1" />
+    <End Role="payments" Type="Self.payment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="bookingdetails">
+        <PropertyRef Name="book_id" />
+      </Principal>
+      <Dependent Role="payments">
+        <PropertyRef Name="book_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__seats__bus_id__3F466844">
+    <End Role="buses" Type="Self.bus" Multiplicity="1" />
+    <End Role="seats" Type="Self.seat" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="buses">
+        <PropertyRef Name="bus_id" />
+      </Principal>
+      <Dependent Role="seats">
+        <PropertyRef Name="bus_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__shedule__bus_id__4316F928">
+    <End Role="buses" Type="Self.bus" Multiplicity="1" />
+    <End Role="shedules" Type="Self.shedule" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="buses">
+        <PropertyRef Name="bus_id" />
+      </Principal>
+      <Dependent Role="shedules">
+        <PropertyRef Name="bus_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__cancelati__ticke__4D94879B">
+    <End Role="tickets" Type="Self.ticket" Multiplicity="0..1" />
+    <End Role="cancelations" Type="Self.cancelation" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tickets">
+        <PropertyRef Name="ticket_Id" />
+      </Principal>
+      <Dependent Role="cancelations">
+        <PropertyRef Name="ticket_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__payment__ticket___4AB81AF0">
+    <End Role="tickets" Type="Self.ticket" Multiplicity="0..1" />
+    <End Role="payments" Type="Self.payment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tickets">
+        <PropertyRef Name="ticket_Id" />
+      </Principal>
+      <Dependent Role="payments">
+        <PropertyRef Name="ticket_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__seats__user_id__403A8C7D">
+    <End Role="users" Type="Self.user" Multiplicity="1" />
+    <End Role="seats" Type="Self.seat" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="users">
+        <PropertyRef Name="user_id" />
+      </Principal>
+      <Dependent Role="seats">
+        <PropertyRef Name="user_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__ticket__schedule__45F365D3">
+    <End Role="shedules" Type="Self.shedule" Multiplicity="1" />
+    <End Role="tickets" Type="Self.ticket" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="shedules">
+        <PropertyRef Name="shedule_id" />
+      </Principal>
+      <Dependent Role="tickets">
+        <PropertyRef Name="schedule_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__ticket__user_id__46E78A0C">
+    <End Role="users" Type="Self.user" Multiplicity="1" />
+    <End Role="tickets" Type="Self.ticket" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="users">
+        <PropertyRef Name="user_id" />
+      </Principal>
+      <Dependent Role="tickets">
+        <PropertyRef Name="user_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="tnt_data_model" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="bookingdetails" EntityType="Self.bookingdetail" />
+    <EntitySet Name="buses" EntityType="Self.bus" />
+    <EntitySet Name="cancelations" EntityType="Self.cancelation" />
+    <EntitySet Name="contacts" EntityType="Self.contact" />
+    <EntitySet Name="payments" EntityType="Self.payment" />
+    <EntitySet Name="seats" EntityType="Self.seat" />
+    <EntitySet Name="shedules" EntityType="Self.shedule" />
+    <EntitySet Name="tickets" EntityType="Self.ticket" />
+    <EntitySet Name="users" EntityType="Self.user" />
+    <AssociationSet Name="FK__bookingde__user___3A81B327" Association="Self.FK__bookingde__user___3A81B327">
+      <End Role="users" EntitySet="users" />
+      <End Role="bookingdetails" EntitySet="bookingdetails" />
+    </AssociationSet>
+    <AssociationSet Name="FK__cancelati__book___4E88ABD4" Association="Self.FK__cancelati__book___4E88ABD4">
+      <End Role="bookingdetails" EntitySet="bookingdetails" />
+      <End Role="cancelations" EntitySet="cancelations" />
+    </AssociationSet>
+    <AssociationSet Name="FK__payment__book_id__49C3F6B7" Association="Self.FK__payment__book_id__49C3F6B7">
+      <End Role="bookingdetails" EntitySet="bookingdetails" />
+      <End Role="payments" EntitySet="payments" />
+    </AssociationSet>
+    <AssociationSet Name="FK__seats__bus_id__3F466844" Association="Self.FK__seats__bus_id__3F466844">
+      <End Role="buses" EntitySet="buses" />
+      <End Role="seats" EntitySet="seats" />
+    </AssociationSet>
+    <AssociationSet Name="FK__shedule__bus_id__4316F928" Association="Self.FK__shedule__bus_id__4316F928">
+      <End Role="buses" EntitySet="buses" />
+      <End Role="shedules" EntitySet="shedules" />
+    </AssociationSet>
+    <AssociationSet Name="FK__cancelati__ticke__4D94879B" Association="Self.FK__cancelati__ticke__4D94879B">
+      <End Role="tickets" EntitySet="tickets" />
+      <End Role="cancelations" EntitySet="cancelations" />
+    </AssociationSet>
+    <AssociationSet Name="FK__payment__ticket___4AB81AF0" Association="Self.FK__payment__ticket___4AB81AF0">
+      <End Role="tickets" EntitySet="tickets" />
+      <End Role="payments" EntitySet="payments" />
+    </AssociationSet>
+    <AssociationSet Name="FK__seats__user_id__403A8C7D" Association="Self.FK__seats__user_id__403A8C7D">
+      <End Role="users" EntitySet="users" />
+      <End Role="seats" EntitySet="seats" />
+    </AssociationSet>
+    <AssociationSet Name="FK__ticket__schedule__45F365D3" Association="Self.FK__ticket__schedule__45F365D3">
+      <End Role="shedules" EntitySet="shedules" />
+      <End Role="tickets" EntitySet="tickets" />
+    </AssociationSet>
+    <AssociationSet Name="FK__ticket__user_id__46E78A0C" Association="Self.FK__ticket__user_id__46E78A0C">
+      <End Role="users" EntitySet="users" />
+      <End Role="tickets" EntitySet="tickets" />
+    </AssociationSet>
+    <EntitySet Name="blogs" EntityType="tnt_dataModel.blog" />
+    <EntitySet Name="terminls" EntityType="tnt_dataModel.terminl" />
+    <EntitySet Name="Tables" EntityType="tnt_dataModel.Table" />
+  </EntityContainer>
+  <EntityType Name="blog">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="pic_blog" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="place_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="city" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="description" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="terminl">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="pic_terminal" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="place_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="city" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="description" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="Table">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+  </EntityType>
+</Schema>

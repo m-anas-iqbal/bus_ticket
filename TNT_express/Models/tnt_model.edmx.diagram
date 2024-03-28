@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="fde056271481450887f2a99907740ff5" Name="Diagram1">
+        <EntityTypeShape EntityType="tnt_dataModel.bookingdetail" Width="1.5" PointX="3" PointY="5.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="tnt_dataModel.bus" Width="1.5" PointX="1.5" PointY="9.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="tnt_dataModel.cancelation" Width="1.5" PointX="5.25" PointY="6.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="tnt_dataModel.contact" Width="1.5" PointX="7.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="tnt_dataModel.payment" Width="1.5" PointX="5.25" PointY="3.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="tnt_dataModel.seat" Width="1.5" PointX="6" PointY="8.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="tnt_dataModel.shedule" Width="1.5" PointX="0.75" PointY="2" IsExpanded="true" />
+        <EntityTypeShape EntityType="tnt_dataModel.ticket" Width="1.5" PointX="3" PointY="1.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="tnt_dataModel.user" Width="1.5" PointX="0.75" PointY="5.5" IsExpanded="true" />
+        <AssociationConnector Association="tnt_dataModel.FK__bookingde__user___3A81B327" ManuallyRouted="false" />
+        <AssociationConnector Association="tnt_dataModel.FK__cancelati__book___4E88ABD4" ManuallyRouted="false" />
+        <AssociationConnector Association="tnt_dataModel.FK__payment__book_id__49C3F6B7" ManuallyRouted="false" />
+        <AssociationConnector Association="tnt_dataModel.FK__seats__bus_id__3F466844" ManuallyRouted="false" />
+        <AssociationConnector Association="tnt_dataModel.FK__shedule__bus_id__4316F928" ManuallyRouted="false" />
+        <AssociationConnector Association="tnt_dataModel.FK__cancelati__ticke__4D94879B" ManuallyRouted="false" />
+        <AssociationConnector Association="tnt_dataModel.FK__payment__ticket___4AB81AF0" ManuallyRouted="false" />
+        <AssociationConnector Association="tnt_dataModel.FK__seats__user_id__403A8C7D" ManuallyRouted="false" />
+        <AssociationConnector Association="tnt_dataModel.FK__ticket__schedule__45F365D3" ManuallyRouted="false" />
+        <AssociationConnector Association="tnt_dataModel.FK__ticket__user_id__46E78A0C" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="tnt_dataModel.blog" Width="1.5" PointX="8.375" PointY="6.75" />
+        <EntityTypeShape EntityType="tnt_dataModel.terminl" Width="1.5" PointX="7.375" PointY="3.75" />
+        <EntityTypeShape EntityType="tnt_dataModel.Table" Width="1.5" PointX="9.375" PointY="3.75" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

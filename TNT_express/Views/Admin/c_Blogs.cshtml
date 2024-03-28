@@ -1,0 +1,38 @@
+﻿@model TNT_express.Models.blog
+
+@{
+    ViewBag.Title = "c_Blogs";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+
+<div class="content-body">
+    <h2>Add Blog</h2>
+    <div class="container">
+
+        @using (Html.BeginForm("c_Blogs", "Admin", FormMethod.Post, new { enctype = "multipart/form-data" }))
+        {
+            <div class="form-floating mb-3">
+                <input type="file" id="floatingInput" placeholder="Blog image" class=" form-control" name="blog_pic" />
+            </div>
+            <div class="form-floating mb-3">
+                @Html.EditorFor(model => model.place_name, new { htmlAttributes = new { id = "floatingInput", placeholder = "Place name", @class = "form-control" } })
+            
+            </div>
+            <div class="form-floating mb-3">
+                @Html.EditorFor(model => model.city, new { htmlAttributes = new { id = "floatingInput", placeholder = "City", @class = "form-control" } })
+              
+            </div>
+            <div class="form-floating mb-3">
+                @Html.EditorFor(model => model.description, new { htmlAttributes = new { id = "floatingInput", placeholder = "Description", @class = "form-control" } })
+               
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Create" class="btn btn-dark" />
+                </div>
+            </div>
+        }
+    </div>
+</div>

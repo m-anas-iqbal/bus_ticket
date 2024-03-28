@@ -1,0 +1,44 @@
+﻿
+@{
+    ViewBag.Title = "shedule";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="page-header">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <h2>Shedule</h2>
+            </div>
+            <div class="col-12">
+                <a href="@Url.Action("Index", "Home")">Home</a>
+                <a href="@Url.Action("shedule", "Home")">Shedule</a>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="row">
+        <h1>Shedule</h1>
+                
+                    <div class="col-lg-6 col-md-6 wow fadeInUp" data-wow-delay="0.2s" style="visibility: visible; animation-delay: 0.2s; animation-name: fadeInUp;">
+                        <div class="blog-item">
+                            <div class="blog-title">
+                                <h3>Shedule</h3>
+                            </div>
+                            <div class="blog-meta">
+                                <p>Departure    :   @Model.departure </p>
+                                <p>Destination  :   @Model.destination </p>
+                            </div>
+                            <div class="blog-text">
+                                <p>@Model.travel_date</p>
+                                <p>@Model.duration</p>
+                                <hr />
+                                <p>
+                                    Fare  : <b>@Model.Fare</b>
+                                </p>
+                                <a href="@Url.Action("bus_res","Home", new { id = Model.bus_id })">booking</a>
+                            </div>
+                        </div>
+                    </div>
+    </div>
+</div>

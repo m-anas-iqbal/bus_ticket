@@ -1,0 +1,272 @@
+﻿
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>T&T Express(Travel and Tour Express) </title>
+
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="T&T Express(Travel and Tour Express) " name="keywords">
+    <meta content="T&T Express(Travel and Tour Express) " name="description">
+
+    <!-- Favicon -->
+    <link href="~/Assets/user_img/logo.png" rel="icon">
+    <link rel="stylesheet" href="~/Assets/Home/css/base.css" type="text/css" media="all">
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <!-- CSS Libraries -->
+
+    <link href="~/Assets/Home/css/busStylt.css" rel="stylesheet" />
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+    <link href="~/Assets/Home/lib/flaticon/font/flaticon.css" rel="stylesheet">
+    <link href="~/Assets/Home/lib/animate/animate.min.css" rel="stylesheet">
+    <link href="~/Assets/Home/lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+    <link href="~/Assets/Home/lib/lightbox/css/lightbox.min.css" rel="stylesheet">
+    <link href="~/Assets/Home/lib/slick/slick.css" rel="stylesheet">
+    <link href="~/Assets/Home/lib/slick/slick-theme.css" rel="stylesheet">
+    <link rel="stylesheet" href="~/Assets/Home/style_t.css">
+    <!-- Template Stylesheet -->
+    <link href="~/Assets/Home/css/STYLE.css" rel="stylesheet">
+</head>
+
+<body>
+    <div class="wrapper">
+        <!-- Top Bar Start -->
+        <div class="top-bar">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-lg-4 col-md-12">
+                        <div class="logo">
+                            <a href="@Url.Action("Index","Home")">
+                                @*<h1>T & T</h1>*@
+                                <img src="~/Assets/user_img/logo.png" alt="Logo">
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-lg-8 col-md-7 d-none d-lg-block">
+                        <div class="row">
+                            <div class="col-4">
+                                <div class="top-bar-item">
+                                    <div class="top-bar-icon">
+                                        <i class="flaticon-calendar"></i>
+                                    </div>
+                                    <div class="top-bar-text">
+                                        <h3>Opening Hour</h3>
+                                        <p>24 / 7</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-4">
+                                <div class="top-bar-item">
+                                    <div class="top-bar-icon">
+                                        <i class="flaticon-call"></i>
+                                    </div>
+                                    <div class="top-bar-text">
+                                        <h3>Call Us</h3>
+                                        <p>03142343223</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-4">
+                                <div class="top-bar-item">
+                                    <div class="top-bar-icon">
+                                        <i class="flaticon-send-mail"></i>
+                                    </div>
+                                    <div class="top-bar-text">
+                                        <h3>Email Us</h3>
+                                        <p>tendtexpress@gmail.com</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Top Bar End -->
+        <!-- Nav Bar Start -->
+        <div class="nav-bar">
+            <div class="container-fluid">
+                <nav class="navbar navbar-expand-lg bg-dark navbar-dark">
+                    <!-- <a href="#" class="navbar-brand">MENU</a> -->
+                    <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+
+                    <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
+                        <div class="navbar-nav mr-auto">
+                            <a href="@Url.Action("Index","Home")" class="hover-4 nav-item nav-link">Home</a>
+                            <div class="nav-item hover-4 dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Ticket</a>
+                                <div class="dropdown-menu">
+                                    <a href="@Url.Action("Index","Home","ticket")" class="dropdown-item">Ticket booking</a>
+                                    <a href="@Url.Action("t_enquiry","Home")" class="dropdown-item">Ticket Enquiry</a>
+                                </div>
+                            </div>
+                            <a href="@Url.Action("blog","Home")" class="nav-item hover-4 nav-link">Blog</a>
+                            <a href="@Url.Action("terminal","Home")" class="nav-item hover-4 nav-link">Terminals</a>
+                            <a href="@Url.Action("about","Home")" class="nav-item hover-4 nav-link">About</a>
+                            <a href="@Url.Action("contact","Home")" class="nav-item hover-4 nav-link">Contact</a>
+                        </div>
+
+                        <div class="ml-auto">
+                            @{
+
+                                if (Session["userid"] != null)
+                                {
+
+
+                                    <div class="nav-item hover-4 dropdown">
+                                        <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown"><span class="profile"><img src="~/Assets/user_img/@Session["U_PROFILE"]" style="height:60px;width:60px;border-radius:50px;" alt="Alternate Text" /></span></a>
+                                        <div class="dropdown-menu">
+                                            <a href="@Url.Action("Index","Home","#ticket")" class="dropdown-item hover-4">Ticket booking</a>
+                                            <a href="@Url.Action("t_print","Home")" class="dropdown-item hover-4">Ticket Print</a>
+                                            <a href="@Url.Action("t_enquiry","Home")" class="dropdown-item hover-4">Ticket Enquiry</a>
+                                            <a href="@Url.Action("contact","Home")" class="dropdown-item hover-4">Contact</a>
+                                            <a href="@Url.Action("blog","Home")" class="dropdown-item hover-4">Blog</a>
+                                            @using (Html.BeginForm("logout", "Home", FormMethod.Post, new { id = "logoutForm" }))
+                                            {
+                                                <a href="javascript:document.getElementById('logoutForm').submit()" class="dropdown-item">Log off</a>
+
+                                            }
+                                        </div>
+                                    </div>
+
+                                }
+                                else
+                                {
+                                    <a class="btn" href="@Url.Action("login","Home")">Login</a>
+                                }
+                            }
+                        </div>
+                    </div>
+                </nav>
+            </div>
+        </div>
+        <!-- Nav Bar End -->
+        @RenderBody()
+        <!-- Footer Start -->
+
+        <div class="footer wow fadeIn" data-wow-delay="0.3s">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6 col-lg-3">
+                        <div class="footer-contact">
+                            <h2>T & T Express <br>(Travel and Tour Express)</h2>
+                            <img src="~/Assets/user_img/logo.png" class="img_footer" />
+                            <p>A journey of thousand miles begins with a single step</p>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-3">
+                        <div class="footer-link">
+                            <h2>Services Areas</h2>
+                            <a href=" @Url.Action("blog", "Home") ">Karachi</a>
+                            <a href=" @Url.Action("blog", "Home") ">Lahore</a>
+                            <a href=" @Url.Action("blog", "Home") ">Peshawar</a>
+                            <a href=" @Url.Action("blog", "Home") ">Gugrawala</a>
+                            <a href=" @Url.Action("blog", "Home") ">Islamabad</a>
+                            <a href="@Url.Action("blog", "Home") ">Maari</a>
+                            <a href=" @Url.Action("blog", "Home") ">Swat</a>
+                            <a href="@Url.Action("blog", "Home") ">Kaghan</a>
+                            <a href=" @Url.Action("blog", "Home") ">Quetta</a>
+                            <a href=" @Url.Action("blog", "Home") ">Balochistan</a>
+                            <a href="@Url.Action("blog", "Home") ">Hyderabad</a>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-6">
+                        <div class="footer-contact" style="text-align: center;">
+                            <h2 style="text-align: left;">Office Contact</h2>
+                            <p><i class="fa fa-map-marker-alt"></i>2 Street, Baldia Town, Karachi</p>
+                            <p><i class="fa fa-phone-alt"></i>03142343223</p>
+                            <p><i class="fa fa-envelope"></i>tendtexpress@gmail.com</p>
+                            <div class="footer-social">
+                                <a href="www.twitter.com"><i class="fab fa-twitter"></i></a>
+                                <a href="www.facebook.com"><i class="fab fa-facebook-f"></i></a>
+                                <a href="www.youtube.com"><i class="fab fa-youtube"></i></a>
+                                <a href="www.instagram.com"><i class="fab fa-instagram"></i></a>
+                                <a href="www.linkedin.com"><i class="fab fa-linkedin-in"></i></a>
+                            </div>
+                        </div>
+                        <div class="newsletter">
+                            <h2 style="text-align: left;">Newsletter</h2>
+                            <p>
+                                Subscribe for more update and news
+                            </p>
+                            @using (Html.BeginForm("news", "Home", FormMethod.Post))
+                             {
+                            <div class="form">
+                                <input class="form-control" name="mailed" placeholder="Email here">
+                                <button type="submit" class="btn">Submit</button>
+                            </div>
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="container footer-menu">
+                <div class="f-menu">
+                    <a href="@Url.Action("about","Home")">Terms of use</a>
+                    <a href="@Url.Action("about","Home")">Privacy policy</a>
+                    <a href="@Url.Action("about","Home")">Cookies</a>
+                    <a href="@Url.Action("contact","Home")">Help</a>
+                    <a href="@Url.Action("contact","Home")">FQAs</a>
+                </div>
+            </div>
+            <div class="container copyright">
+                <div class="row">
+                    <div class="col-md-6">
+                        <p>&copy; <a href="#">T&T Express(Travel and Tour Express)</a>, All Right Reserved.</p>
+                    </div>
+                    <div class="col-md-6">
+                        <p>Designed By <a href="#">M.Anas M.Iqbal </a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Footer End -->
+
+        <a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
+    </div>
+
+    <!-- JavaScript Libraries -->
+    <script>
+        //   for now date
+
+        var today = new Date();
+        var dd = today.getDate();
+        var mm = today.getMonth() + 1; //January is 0!
+        var yyyy = today.getFullYear();
+        if (dd < 10) {
+            dd = '0' + dd
+        }
+        if (mm < 10) {
+            mm = '0' + mm
+        }
+
+        today = yyyy + '-' + mm + '-' + dd;
+        document.getElementById("datefield").setAttribute("min", today);
+
+    </script>
+    @*<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>*@
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    @*<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>*@
+    @*<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>*@
+    <script src="~/Assets/Home/js/JQuery.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+    <script src="~/Assets/Home/lib/easing/easing.min.js"></script>
+    <script src="~/Assets/Home/lib/wow/wow.min.js"></script>
+    <script src="~/Assets/Home/lib/owlcarousel/owl.carousel.min.js"></script>
+    <script src="~/Assets/Home/lib/isotope/isotope.pkgd.min.js"></script>
+    <script src="~/Assets/Home/lib/waypoints/waypoints.min.js"></script>
+    <script src="~/Assets/Home/lib/counterup/counterup.min.js"></script>
+    <script src="~/Assets/Home/lib/slick/slick.min.js"></script>
+    <script src="~/Assets/Home/js/busJS.js"></script>
+    <!-- Template Javascript -->
+    <script src="~/Assets/Home/lib/lightbox/js/lightbox.js"></script>
+    <script src="~/Assets/Home/js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,66 @@
+﻿@model IEnumerable<TNT_express.Models.blog>
+
+@{
+    ViewBag.Title = "Blogs";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>Blogs</h2>
+<div class="content-body">
+
+    <div class="col-12">
+        <div class="card">
+            <div class="card-header">
+                <h4 class="card-title">Blogs</h4>   @Html.ActionLink("Add Blog", "c_Blogs", "Admin", new { @class = "btn btn-dark" })
+            </div>
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table id="example3" class="display" style="min-width: 845px">
+                        <thead>
+                            <tr>
+                                <th></th>
+                                <th>Image</th>
+                                <th>Place</th>
+                                <th>City</th>
+                                <th>Description</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                            <tr>
+                                <td>
+                                   
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.pic_blog)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.place_name)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.city)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.description)
+                                </td>
+                                <td>
+                                    <div class="d-flex">
+                                        <a href="@Url.Action("e_Blogs","Admin", new { id = item.Id })" class="btn btn-primary shadow btn-xs sharp mr-1"><i class="fa fa-pencil"></i></a>
+                                        @using (Html.BeginForm("Delete", "Admin", FormMethod.Post, new { id = item.Id }))
+                                        {
+                                            <button class="btn btn-danger shadow btn-xs sharp"><i class="fa fa-trash"></i></button>
+                                        }
+                                    </div>
+                                </td>
+                            </tr>
+                            }
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>

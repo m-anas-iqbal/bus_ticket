@@ -1,0 +1,43 @@
+﻿@model TNT_express.Models.bus
+
+@{
+    ViewBag.Title = "c_Bus";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+
+<div class="content-body">
+    <h2>Add Bus</h2>
+    <div class="container">
+
+        @using (Html.BeginForm("c_Shedule", "Admin", FormMethod.Post, new { enctype = "multipart/form-data" }))
+        {
+            <div class="form-floating mb-3">
+                @Html.EditorFor(model => model.bus_company, new { htmlAttributes = new { id = "floatingInput", placeholder = "Company", @class = "form-control" } })
+               
+            </div>
+            <div class="form-floating mb-3">
+                @Html.EditorFor(model => model.bus_type, new { htmlAttributes = new { id = "floatingInput", placeholder = "Bus Type", @class = "form-control" } })
+               
+            </div>
+            <div class="form-floating mb-3">
+                @Html.EditorFor(model => model.total_seats, new { htmlAttributes = new { id = "floatingInput", placeholder = "Total seats", @class = "form-control" } })
+              
+            </div>
+            <div class="form-floating mb-3">
+                @Html.EditorFor(model => model.able_seats, new { htmlAttributes = new { id = "floatingInput", placeholder = "Available Seats", @class = "form-control" } })
+               
+            </div>
+
+            <div class="form-floating mb-3">
+                @Html.EditorFor(model => model.bus_no, new { htmlAttributes = new { id = "floatingInput", placeholder = "Bus no", @class = "form-control" } })
+               
+            </div>
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Create" class="btn btn-dark" />
+                </div>
+            </div>
+        }
+    </div>
+</div>

@@ -1,0 +1,138 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="tnt_dataModelStoreContainer" CdmEntityContainer="tnt_data_model">
+    <EntitySetMapping Name="bookingdetails">
+      <EntityTypeMapping TypeName="tnt_dataModel.bookingdetail">
+        <MappingFragment StoreEntitySet="bookingdetails">
+          <ScalarProperty Name="book_id" ColumnName="book_id" />
+          <ScalarProperty Name="user_id" ColumnName="user_id" />
+          <ScalarProperty Name="acc_no" ColumnName="acc_no" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="booked_date" ColumnName="booked_date" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="buses">
+      <EntityTypeMapping TypeName="tnt_dataModel.bus">
+        <MappingFragment StoreEntitySet="buses">
+          <ScalarProperty Name="bus_id" ColumnName="bus_id" />
+          <ScalarProperty Name="bus_company" ColumnName="bus_company" />
+          <ScalarProperty Name="bus_type" ColumnName="bus_type" />
+          <ScalarProperty Name="total_seats" ColumnName="total_seats" />
+          <ScalarProperty Name="able_seats" ColumnName="able_seats" />
+          <ScalarProperty Name="bus_no" ColumnName="bus_no" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="cancelations">
+      <EntityTypeMapping TypeName="tnt_dataModel.cancelation">
+        <MappingFragment StoreEntitySet="cancelations">
+          <ScalarProperty Name="cancel_id" ColumnName="cancel_id" />
+          <ScalarProperty Name="ticket_id" ColumnName="ticket_id" />
+          <ScalarProperty Name="book_id" ColumnName="book_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="contacts">
+      <EntityTypeMapping TypeName="tnt_dataModel.contact">
+        <MappingFragment StoreEntitySet="contacts">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="c_name" ColumnName="c_name" />
+          <ScalarProperty Name="c_email" ColumnName="c_email" />
+          <ScalarProperty Name="c_subject" ColumnName="c_subject" />
+          <ScalarProperty Name="c_message" ColumnName="c_message" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="payments">
+      <EntityTypeMapping TypeName="tnt_dataModel.payment">
+        <MappingFragment StoreEntitySet="payments">
+          <ScalarProperty Name="pay_id" ColumnName="pay_id" />
+          <ScalarProperty Name="book_id" ColumnName="book_id" />
+          <ScalarProperty Name="ticket_id" ColumnName="ticket_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="seats">
+      <EntityTypeMapping TypeName="tnt_dataModel.seat">
+        <MappingFragment StoreEntitySet="seats">
+          <ScalarProperty Name="seat_no" ColumnName="seat_no" />
+          <ScalarProperty Name="seats_Id" ColumnName="seats_Id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="gender" ColumnName="gender" />
+          <ScalarProperty Name="age" ColumnName="age" />
+          <ScalarProperty Name="bus_id" ColumnName="bus_id" />
+          <ScalarProperty Name="user_id" ColumnName="user_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="shedules">
+      <EntityTypeMapping TypeName="tnt_dataModel.shedule">
+        <MappingFragment StoreEntitySet="shedules">
+          <ScalarProperty Name="Fare" ColumnName="Fare" />
+          <ScalarProperty Name="duration" ColumnName="duration" />
+          <ScalarProperty Name="shedule_id" ColumnName="shedule_id" />
+          <ScalarProperty Name="bus_id" ColumnName="bus_id" />
+          <ScalarProperty Name="travel_date" ColumnName="travel_date" />
+          <ScalarProperty Name="departure" ColumnName="departure" />
+          <ScalarProperty Name="destination" ColumnName="destination" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tickets">
+      <EntityTypeMapping TypeName="tnt_dataModel.ticket">
+        <MappingFragment StoreEntitySet="tickets">
+          <ScalarProperty Name="ticket_Id" ColumnName="ticket_Id" />
+          <ScalarProperty Name="schedule_id" ColumnName="schedule_id" />
+          <ScalarProperty Name="user_id" ColumnName="user_id" />
+          <ScalarProperty Name="no_seat" ColumnName="no_seat" />
+          <ScalarProperty Name="fare" ColumnName="fare" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="users">
+      <EntityTypeMapping TypeName="tnt_dataModel.user">
+        <MappingFragment StoreEntitySet="users">
+          <ScalarProperty Name="user_id" ColumnName="user_id" />
+          <ScalarProperty Name="u_name" ColumnName="u_name" />
+          <ScalarProperty Name="u_email" ColumnName="u_email" />
+          <ScalarProperty Name="u_phone" ColumnName="u_phone" />
+          <ScalarProperty Name="u_adresss" ColumnName="u_adresss" />
+          <ScalarProperty Name="u_age" ColumnName="u_age" />
+          <ScalarProperty Name="u_role" ColumnName="u_role" />
+          <ScalarProperty Name="u_password" ColumnName="u_password" />
+          <ScalarProperty Name="u_img" ColumnName="u_img" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="blogs">
+      <EntityTypeMapping TypeName="tnt_dataModel.blog">
+        <MappingFragment StoreEntitySet="blogs">
+          <ScalarProperty Name="description" ColumnName="description" />
+          <ScalarProperty Name="city" ColumnName="city" />
+          <ScalarProperty Name="place_name" ColumnName="place_name" />
+          <ScalarProperty Name="pic_blog" ColumnName="pic_blog" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="terminls">
+      <EntityTypeMapping TypeName="tnt_dataModel.terminl">
+        <MappingFragment StoreEntitySet="terminl">
+          <ScalarProperty Name="description" ColumnName="description" />
+          <ScalarProperty Name="city" ColumnName="city" />
+          <ScalarProperty Name="place_name" ColumnName="place_name" />
+          <ScalarProperty Name="pic_terminal" ColumnName="pic_terminal" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Tables">
+      <EntityTypeMapping TypeName="tnt_dataModel.Table">
+        <MappingFragment StoreEntitySet="Table">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

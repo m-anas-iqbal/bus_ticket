@@ -1,0 +1,78 @@
+﻿@model TNT_express.Models.user
+
+@{
+    ViewBag.Title = "Signup";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="form-sign">
+
+    @using (Html.BeginForm("Signup","Home",FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
+    <div class="form-horizontal">
+        <h2>Sign up</h2>
+        <hr />
+        <p style="color:red;">@ViewBag.msg</p>
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            <div class="col">
+                @Html.EditorFor(model => model.u_name, new { htmlAttributes = new { placeholder = "Enter User name", @class = "t2 form-control" } })
+                @Html.ValidationMessageFor(model => model.u_name, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col">
+                @Html.EditorFor(model => model.u_email, new { htmlAttributes = new { placeholder = "Enter your Email", @class = "t2 form-control" } })
+                @Html.ValidationMessageFor(model => model.u_email, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col">
+                @Html.EditorFor(model => model.u_phone, new { htmlAttributes = new { placeholder = "Enter your Phone no", @class = "t2 form-control" } })
+                @Html.ValidationMessageFor(model => model.u_phone, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col">
+                @Html.EditorFor(model => model.u_adresss, new { htmlAttributes = new { placeholder = "Enter your Address", @class = "t2 form-control" } })
+                @Html.ValidationMessageFor(model => model.u_adresss, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col">
+                @Html.EditorFor(model => model.u_age, new { htmlAttributes = new { placeholder = "Enter your age", @class = "t2 form-control" } })
+                @Html.ValidationMessageFor(model => model.u_age, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col">
+                @Html.EditorFor(model => model.u_password, new { htmlAttributes = new { Type = "password", placeholder = "Enter your Password", @class = "t2 form-control" } })
+                @Html.ValidationMessageFor(model => model.u_password, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col">
+                <input type="file" placeholder="Your profile image" class="t2 form-control" name="user_pic" />
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col">
+                <input type="submit" value="Sign up" class="btn" />
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col">
+                <a href="@Url.Action("Login", "Home") " class="a">If you have account then click here for Login</a>
+            </div>
+        </div>
+    </div>
+    }
+
+</div>

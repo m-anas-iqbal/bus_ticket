@@ -1,0 +1,58 @@
+﻿@model TNT_express.Models.user
+
+@{
+    ViewBag.Title = "c_Users";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+
+<div class="content-body">
+    <h2>Add User</h2>
+    <div class="container">
+
+        @using (Html.BeginForm("Users", "Admin", FormMethod.Post, new { enctype = "multipart/form-data" }))
+        {
+            <div class="form-floating mb-3">
+                <input type="file" id="floatingInput" placeholder="User image" class=" form-control" name="user_pic" />
+           
+            </div>
+            <div class="form-floating mb-3">
+                @Html.EditorFor(model => model.u_name, new { htmlAttributes = new { id = "floatingInput", placeholder = "User name", @class = "form-control" } })
+            
+            </div>
+            <div class="form-floating mb-3">
+                @Html.EditorFor(model => model.u_email, new { htmlAttributes = new { id = "floatingInput", placeholder = "Email", @class = "form-control" } })
+           
+            </div>
+            <div class="form-floating mb-3">
+                @Html.EditorFor(model => model.u_phone, new { htmlAttributes = new { id = "floatingInput", placeholder = "Phone no", @class = "form-control" } })
+         
+            </div>
+            <div class="form-floating mb-3">
+                @Html.EditorFor(model => model.u_adresss, new { htmlAttributes = new { id = "floatingInput", placeholder = "Addresss", @class = "form-control" } })
+          
+            </div>
+            <div class="form-floating mb-3">
+                @Html.EditorFor(model => model.u_age, new { htmlAttributes = new { id = "floatingInput", placeholder = "Age", @class = "form-control" } })
+         
+            </div>
+            <div class="form-floating">
+                <select class="form-select  form-control mb-3"  aria-label="Floating label select example">
+                    <option selected>Select User Role</option>
+                    <option value="User">User</option>
+                    <option value="Employee">Employee</option>
+                    <option value="Admin">Admin</option>
+                </select>
+            </div>
+            <div class="form-floating mb-3">
+                @Html.EditorFor(model => model.u_password, new { htmlAttributes = new { id = "floatingInput", placeholder = "Password", @class = "form-control" } })
+             
+            </div>
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Create" class="btn btn-dark" />
+                </div>
+            </div>
+        }
+    </div>
+</div>

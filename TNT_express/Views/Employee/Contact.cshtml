@@ -1,0 +1,70 @@
+﻿@model IEnumerable<TNT_express.Models.contact>
+
+@{
+    ViewBag.Title = "Contact";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>Contact</h2>
+<div class="content-body">
+
+    <div class="col-12">
+        <div class="card">
+            <div class="card-header">
+                <h4 class="card-title">Contact</h4>
+            </div>
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table id="example5" class="display" style="min-width: 845px">
+                        <thead>
+                            <tr>
+                                <th>
+
+                                </th>
+                                <th>
+                                    User name
+                                </th>
+                                <th>
+                                    User Email
+                                </th>
+                                <th>
+                                    Subject
+                                </th>
+                                <th>
+                                    Message
+                                </th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td>
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.c_name)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.c_email)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.c_subject)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.c_message)
+                                    </td>
+                                    <td>
+                                       
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
